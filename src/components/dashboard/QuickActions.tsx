@@ -1,52 +1,29 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Icon from "@/components/ui/icon";
+import { Card, CardContent } from "@/components/ui/card";
+import ActionButton from "@/components/dashboard/ActionButton";
 import { Link } from "react-router-dom";
 
-const QuickActions = () => {
+interface ActionItem {
+  icon: string;
+  label: string;
+  path: string;
+}
+
+interface QuickActionsProps {
+  actions: ActionItem[];
+}
+
+const QuickActions = ({ actions }: QuickActionsProps) => {
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Быстрые действия</CardTitle>
-      </CardHeader>
-      <CardContent>
+      <CardContent className="p-6">
+        <h2 className="text-lg font-bold mb-4">Быстрые действия</h2>
         <div className="grid grid-cols-2 gap-3">
-          <Button variant="outline" className="h-auto flex-col gap-2 p-4 justify-start items-start" asChild>
-            <Link to="/reports">
-              <div className="flex h-8 w-8 items-center justify-center">
-                <Icon name="FileText" className="h-5 w-5" />
-              </div>
-              <span className="text-sm font-medium">Отчеты</span>
+          {actions.map((action, index) => (
+            <Link key={index} to={action.path}>
+              <ActionButton icon={action.icon} label={action.label} />
             </Link>
-          </Button>
-          
-          <Button variant="outline" className="h-auto flex-col gap-2 p-4 justify-start items-start" asChild>
-            <Link to="/devices">
-              <div className="flex h-8 w-8 items-center justify-center">
-                <Icon name="Sliders" className="h-5 w-5" />
-              </div>
-              <span className="text-sm font-medium">Управление</span>
-            </Link>
-          </Button>
-          
-          <Button variant="outline" className="h-auto flex-col gap-2 p-4 justify-start items-start" asChild>
-            <Link to="/users">
-              <div className="flex h-8 w-8 items-center justify-center">
-                <Icon name="Users" className="h-5 w-5" />
-              </div>
-              <span className="text-sm font-medium">Пользователи</span>
-            </Link>
-          </Button>
-          
-          <Button variant="outline" className="h-auto flex-col gap-2 p-4 justify-start items-start" asChild>
-            <Link to="/notifications">
-              <div className="flex h-8 w-8 items-center justify-center">
-                <Icon name="Bell" className="h-5 w-5" />
-              </div>
-              <span className="text-sm font-medium">Уведомления</span>
-            </Link>
-          </Button>
+          ))}
         </div>
       </CardContent>
     </Card>
