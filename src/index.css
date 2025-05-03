@@ -3,38 +3,55 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 210 40% 96%; /* #F0F4F8 */
-    --foreground: 0 0% 13%; /* #212121 */
-    
-    --card: 0 0% 100%; /* #FFFFFF */
-    --card-foreground: 0 0% 13%; /* #212121 */
-    
-    --popover: 0 0% 100%; /* #FFFFFF */
-    --popover-foreground: 0 0% 13%; /* #212121 */
-    
-    --primary: 122 60% 49%; /* #4CAF50 */
-    --primary-foreground: 0 0% 100%; /* #FFFFFF */
-    
-    --secondary: 122 42% 39%; /* #388E3C */
-    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
-    
-    --muted: 0 0% 46%; /* #757575 */
-    --muted-foreground: 0 0% 46%; /* #757575 */
-    
-    --accent: 122 60% 49%; /* #4CAF50 */
-    --accent-foreground: 0 0% 100%; /* #FFFFFF */
-    
-    --destructive: 0 67% 58%; /* #F44336 */
-    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
-    
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 122 60% 49%; /* #4CAF50 */
-    
-    --radius: 0.5rem;
-  }
+:root {
+  --background: 210 33% 96%;
+  --foreground: 0 0% 13%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 13%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 13%;
+  --primary: 122 55% 49%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 46%;
+  --secondary-foreground: 0 0% 13%;
+  --muted: 210 33% 96%;
+  --muted-foreground: 0 0% 46%;
+  --accent: 210 33% 96%;
+  --accent-foreground: 0 0% 13%;
+  --destructive: 0 68% 58%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 122 55% 49%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 15%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 20%;
+  --card-foreground: 0 0% 95%;
+  --popover: 0 0% 20%;
+  --popover-foreground: 0 0% 95%;
+  --primary: 122 55% 49%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 46%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 25%;
+  --accent-foreground: 0 0% 95%;
+  --destructive: 0 68% 58%;
+  --destructive-foreground: 0 0% 95%;
+  --border: 0 0% 30%;
+  --input: 0 0% 30%;
+  --ring: 122 55% 49%;
+}
+
+body {
+  background-color: #F0F4F8;
+  color: #212121;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 @layer base {
@@ -42,6 +59,14 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-text;
   }
+}
+
+.eco-stat-card {
+  @apply p-4 rounded-md bg-background-light shadow-sm border border-[#E0E0E0] transition-all;
+}
+
+.eco-stat-card:hover {
+  @apply shadow-md border-[#BDBDBD];
 }

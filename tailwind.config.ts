@@ -1,7 +1,7 @@
 
 import type { Config } from "tailwindcss";
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -13,45 +13,43 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "1rem",
+      padding: "2rem",
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
       colors: {
+        // Эко Офис цветовая палитра
+        background: "#F0F4F8",
+        "background-light": "#FFFFFF",
+        primary: "#4CAF50",
+        "primary-dark": "#388E3C",
+        secondary: "#757575",
+        text: "#212121",
+        error: "#F44336",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
+          DEFAULT: "#F44336",
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "#F0F4F8",
+          foreground: "#757575",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#F0F4F8",
+          foreground: "#212121",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "#FFFFFF",
+          foreground: "#212121",
         },
       },
       borderRadius: {
@@ -76,6 +74,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
-} satisfies Config;
+};
 
 export default config;
